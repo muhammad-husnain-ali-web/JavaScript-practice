@@ -1,0 +1,37 @@
+.white{
+    background-color: white;
+    color: black;
+}
+.black{
+    background-color: black;
+    color: white;
+}
+.thm:hover{
+    cursor: pointer;
+}
+
+.container{
+    margin: 20px;
+    padding: 20px;
+    background-color: aqua;
+}
+.childcontainer{
+    margin: 20px;
+    padding: 20px;
+    background-color: rgb(163, 140, 226);
+}
+.child{
+    margin: 20px;
+    padding: 20px;
+    background-color: rgb(87, 191, 156);
+}
+.box{
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+.box:hover{
+    cursor: pointer;
+}
