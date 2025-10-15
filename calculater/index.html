@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Calculator</title>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button >C</button>
+      <button >%</button>
+      <button class="delete">⌫</button>
+      <button >/</button>
+      <button >7</button>
+      <button >8</button>
+      <button >9</button>
+      <button >×</button>
+      <button >4</button>
+      <button >5</button>
+      <button >6</button>
+      <button >−</button>
+      <button >1</button>
+      <button >2</button>
+      <button >3</button>
+      <button >+</button>
+      <button >0</button>
+      <button >.</button>
+      <button class="equal" >=</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    let currentValue = '';
+
+    function appendValue(val) {
+      // Prevent multiple operators in a row or starting with an operator (except '-')
+      if (currentValue === '' && ['/', '*', '+', '%'].includes(val)) return;
+      currentValue += val;
+      display.innerText = currentValue;
+    }
+
+    function clearDisplay() {
+      currentValue = '';
+      display.innerText = '0';
+    }
+
+    function deleteLast() {
+      currentValue = currentValue.slice(0, -1);
+      display.innerText = currentValue || '0';
+    }
+
+    function calculate() {
+      try {
+        // Use eval for simplicity; for production use a safer alternative
+        const result = eval(currentValue);
+        display.innerText = result;
+        currentValue = result.toString();
+      } catch (error) {
+        display.innerText = 'Error';
+        currentValue = '';
+      }
+    }
+  </script>
+</body>
+</html>
